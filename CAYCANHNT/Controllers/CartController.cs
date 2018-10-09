@@ -120,34 +120,34 @@ namespace CAYCANHNT.Controllers
         [HttpPost]
         public ActionResult Payment()
         {
-            var order = new Model.EF.ORDER();
-            order.DATEBEGIN = DateTime.Now;
+            //var order = new Model.EF.ORDER();
+            //order.DATEBEGIN = DateTime.Now;
 
-            try
-            {
-                var id = new OrderDAO().Insert(order);
-                var cart = (List<CartItem>)Session[CartSession];
-                var detailDAO = new Model.DAO.OrderDetailDAO();
-                decimal total = 0;
-                foreach (var item in cart)
-                {
-                    var orderDetail = new Model.EF.ORDER_DETAIL();
-                    orderDetail.ID_PRO = item.Product.ID_PRO;
-                    orderDetail.ID_CART = id;
-                    orderDetail.PRICE = item.Product.PRICE;
-                    orderDetail.SOLD_NUM = item.Quantity;
-                    detailDAO.Insert(orderDetail);
+            //try
+            //{
+            //    var id = new OrderDAO().Insert(order);
+            //    var cart = (List<CartItem>)Session[CartSession];
+            //    var detailDAO = new Model.DAO.OrderDetailDAO();
+            //    decimal total = 0;
+            //    foreach (var item in cart)
+            //    {
+            //        var orderDetail = new Model.EF.ORDER_DETAIL();
+            //        orderDetail.ID_PRO = item.Product.ID_PRO;
+            //        orderDetail.ID_CART = id;
+            //        orderDetail.PRICE = item.Product.PRICE;
+            //        orderDetail.SOLD_NUM = item.Quantity;
+            //        detailDAO.Insert(orderDetail);
 
-                    total += (item.Product.PRICE.GetValueOrDefault(0) * item.Quantity);
-                }
+            //        total += (item.Product.PRICE.GetValueOrDefault(0) * item.Quantity);
+            //    }
 
-            }
-            catch (Exception ex)
-            {
-                //ghi log
-                throw ex;
-                //return Redirect("/loi-thanh-toan");
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    //ghi log
+            //    throw ex;
+            //    //return Redirect("/loi-thanh-toan");
+            //}
             return Redirect("/hoan-thanh");
         }
 
