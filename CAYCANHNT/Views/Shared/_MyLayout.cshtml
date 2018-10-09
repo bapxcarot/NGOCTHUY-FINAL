@@ -35,13 +35,13 @@
                         }
                         @if (session == null)
                         {
-                            <li><a href="/dang-ky" class="button" style="color:#fff;background: #009900; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Đăng ký</a></li>
-                            <li><a href="/dang-nhap" class="button" style="color:#fff;background: #009900; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Đăng nhập</a></li>
+                            <li><a href="/dang-ky" class="button" style="color:#fff;background: #e542f4; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Đăng ký</a></li>
+                            <li><a href="/dang-nhap" class="button" style="color:#fff;background: #e542f4; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Đăng nhập</a></li>
                         }
                         else
                         {
-                            <li style="color:#fff;background: #009900; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Xin chào: @session.UserName</li>
-                            <li><a href="/thoat" class="button" style="color:#fff;background: #009900; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Thoát</a></li>
+                            <li style="color:#fff;background: #e542f4; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Xin chào: @session.UserName</li>
+                            <li><a href="/thoat" class="button" style="color:#fff;background: #e542f4; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Thoát</a></li>
                         }
                     </ul>
                 </div>
@@ -104,7 +104,7 @@
                     <div class="clear"></div>
                     @{ Html.RenderAction("getGGMapHome", "Skin");}
                     <div class="clear"></div>
-                    @{ Html.RenderAction("getFanpage", "Skin");}
+                    @*@{ Html.RenderAction("getFanpage", "Skin");}*@
                 </div>
 
                 <div class="header_bottom_right">
