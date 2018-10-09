@@ -28,6 +28,9 @@
     <div class="wrap">
         <div class="header">
             <div class="headertop_desc">
+                <div class="logo">
+                    <a href="/default/index"><img style="height: 80px; width: 150px" src="~/Content/images/logo.png" alt="" /></a>
+                </div>
                 <div class="account_desc" style="margin-right:5px">
                     <ul>
                         @{
@@ -47,7 +50,7 @@
                 </div>
                 <div class="clear"></div>
             </div>
-            <div class="header_top">
+            @*<div class="header_top">
                 @{ Html.RenderAction("getLogo", "Skin");}
                 @if (session != null)
                 {
@@ -87,7 +90,7 @@
 
                 </script>
                 <div class="clear"></div>
-            </div>
+            </div>*@
             <div class="header_bottom">
                 <div class="menu">
                     @{ Html.RenderAction("getmenu", "Temp");}
