@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<div class="panel panel-warning">
+    <div class="panel-heading"><h4>Tất cả: @Model.NAME_CAT</h4></div>
+    <div class="panel-body">
+        <div class="lady-in">
+            @Html.Action("getProductShop", "Default", new { id = @Model.ID_CAT, metatitle = @ViewBag.metatitle })
+        </div>
+    </div>
+</div>

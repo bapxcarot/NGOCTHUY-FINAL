@@ -1,0 +1,16 @@
+﻿@model IEnumerable<CAYCANHNT.Models.SKIN>
+
+@foreach (var i in Model)
+{
+<div class="col-md-6">
+    <p style="margin-top:10px"><strong>Cảm ơn quý khách đã ghé thăm!</strong></p>
+    <hr />
+    @Html.Raw(i.footer)
+
+    <div>
+        <p class="text-warning" style="color:red;font-size:15px">Số người Online: <span id="UserOnline">0</span> Online.</p>
+    </div>
+
+
+</div>
+}

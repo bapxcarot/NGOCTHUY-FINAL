@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="de9d98d3d8094e7087d4f9bdd4f5cd5d" Name="Diagram1">
+        <EntityTypeShape EntityType="CAYCANHNTModel.BLOG" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAYCANHNTModel.CATOLOGY" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAYCANHNTModel.CONTACT" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAYCANHNTModel.MENU" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAYCANHNTModel.PRODUCT" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAYCANHNTModel.SKIN" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAYCANHNTModel.SLIDER" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAYCANHNTModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAYCANHNTModel.USER" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <AssociationConnector Association="CAYCANHNTModel.FK__BLOG__ID_USERS__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="CAYCANHNTModel.FK__PRODUCTS__ID_CAT__20C1E124" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CAYCANHNTModel.ORDER" Width="1.5" PointX="3" PointY="15.5" />
+        <EntityTypeShape EntityType="CAYCANHNTModel.ORDER_DETAIL" Width="1.5" PointX="5.25" PointY="12.875" />
+        <AssociationConnector Association="CAYCANHNTModel.FK__CART__ID_USERS__1ED998B21" />
+        <AssociationConnector Association="CAYCANHNTModel.FK__CART_DETA__ID_CA__21B6055D1" />
+        <AssociationConnector Association="CAYCANHNTModel.FK__CART_DETA__ID_PR__1FCDBCEB1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

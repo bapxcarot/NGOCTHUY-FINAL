@@ -1,0 +1,83 @@
+﻿@using CAYCANHNT.Help
+@model IEnumerable<CAYCANHNT.Models.PRODUCT>
+
+<table style="width:100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+    <thead>
+        <tr>
+            <th style="text-align:center">
+                STT
+            </th>
+            <th style="text-align:center">
+                Tên sản phẩm
+            </th>
+            <th style="text-align:center">
+                Số lượng
+            </th>
+            <th style="text-align:center">
+                Giá
+            </th>
+            <th style="text-align:center">
+                Hình
+            </th>
+            <th style="text-align:center">
+                Sắp xếp
+            </th>
+            <th style="text-align:center">
+                Trạng thái
+            </th>
+            <th style="text-align:center">
+                Thể loại
+            </th>
+            <th style="text-align:center">
+                Chức năng
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align:center">
+                    @Html.Raw(i++)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME_PRO)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.NUMS)
+                </td>
+                <td style="text-align:center">
+                    @String.Format("{0:c}", item.PRICE)
+                    @*@Html.DisplayFor(modelItem => item.PRICE)*@
+                </td>
+                <td style="text-align:center">
+                    <img src="~/Content/upload/img/product/@item.IMG1" width="100px" />
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.ORDER)
+                </td>
+                <td style="text-align:center">
+                    @{ var chk = (item.HIDE == 0) ? "Hiện" : "Ẩn";}
+                    @Html.DisplayFor(modelItem => chk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CATOLOGY.NAME_CAT)
+                </td>
+                <td style="text-align:center">
+                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Sửa", "Edit", "Products", routeValues: new { id = item.ID_PRO }, htmlAttributes: new { data_modal = "", @class = "btn btn-default" })
+                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-zoom-in'></span>", "Chi tiết", "Details", "Products", routeValues: new { id = item.ID_PRO }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
+                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-trash'></span>", "Xoá", "Delete", "Products", routeValues: new { id = item.ID_PRO }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<script>
+        $(document).ready(function () {
+            $('#dataTables-example').DataTable({
+                responsive: true
+            });
+        });
+</script>

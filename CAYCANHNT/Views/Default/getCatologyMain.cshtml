@@ -1,0 +1,13 @@
+﻿@model IEnumerable<CAYCANHNT.Models.CATOLOGY>
+
+@foreach (var item in Model)
+{
+    <div class="panel panel-success">
+        <div class="panel-heading"><h4><a href="/@ViewBag.meta/@item.META">@item.NAME_CAT</a></h4></div>
+        <div class="panel-body">
+            @Html.Action("getProduct", "Default", new { id = item.ID_CAT, metatitle = @ViewBag.metatitle })
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<CAYCANHNT.Models.SKIN>
+
+@foreach(var i in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading" style="background:#009900; color:#fff; text-align:center">FANPAGE</div>
+        <div class="panel-body">
+            <div class="fb-page" data-href="@i.fanpage" data-tabs="timeline" data-width="300" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="@i.fanpage" class="fb-xfbml-parse-ignore"><a href="@i.fanpage">Cây Cảnh NT Fanpage</a></blockquote></div>
+        </div>
+    </div>
+}

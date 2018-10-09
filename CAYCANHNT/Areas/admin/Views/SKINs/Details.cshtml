@@ -1,0 +1,106 @@
+﻿@model CAYCANHNT.Models.SKIN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_MyLayout.cshtml";
+}
+
+<style>
+    img {
+        width: 350px;
+    }
+</style>
+
+<div style="height:15px"></div>
+<div class="panel panel-red">
+    <div class="panel-heading">Xem thông tin Sản phẩm</div>
+    <div class="panel-body">
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    Logo
+                </dt>
+
+                <dd style="margin-bottom:10px">
+                    <img src="~/Content/images/@Html.DisplayFor(model => model.logo)" width="350"/>
+                </dd>
+
+                <dt>
+                    Hình quảng cáo
+                </dt>
+
+                <dd style="margin-bottom:10px">
+                    <a href="@Html.DisplayFor(model => model.comercial_link)" target="_blank"><img src="~/Content/images/@Html.DisplayFor(model => model.comercial)" /></a>
+                </dd>
+
+                <dt>
+                    Google Map
+                </dt>
+
+                <dd style="margin-bottom:10px">
+                    @{ 
+                        var maps = Model.googlemap;
+                        var key = "AIzaSyA0hLaVh0iDpP1axIWVmr8TjQoqNFCSj4s";
+                        maps = maps + key;
+                    }
+                    <iframe width="300" height="300" frameborder="0" style="border:0"
+                            src="@maps" allowfullscreen></iframe>
+                </dd>
+
+                <dt>
+                    Fanpage
+                </dt>
+
+                <dd style="margin-bottom:10px">
+                    <a href="@Html.DisplayFor(model => model.fanpage)" target="_blank">@Html.DisplayFor(model => model.fanpage)</a>
+                </dd>
+
+                <dt>
+                    Chân trang
+                </dt>
+
+                <dd style="margin-bottom:10px">
+                    @Html.Raw(Model.footer)
+                </dd>
+
+                <dt>
+                   Youtube
+                </dt>
+
+                <dd style="margin-bottom:10px">
+                    <iframe width="300" height="300" src="@Model.youtube" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </dd>
+
+                <dt>
+                    Về cửa hàng
+                </dt>
+
+                <dd style="margin-bottom:10px; margin-right:20px">
+                    @Html.Raw(Model.aboutus)
+                </dd>
+
+                <dt>
+                    Thông tin liên hệ
+                </dt>
+
+                <dd style="margin-bottom:10px">
+                    @Html.Raw(Model.shopinfo)
+                </dd>
+
+                <dt>
+                    Chính sách giao hàng
+                </dt>
+
+                <dd style="margin-bottom:10px">
+                    @Html.Raw(Model.deliveryinfo)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Sửa", "Edit", new { id = Model.id }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Quay về", "Index", "Index", new { @class = "btn btn-danger" })
+        </p>
+    </div>
+</div>
+

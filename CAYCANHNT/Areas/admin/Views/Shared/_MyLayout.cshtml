@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="~/Content/images/trees.ico">
+    <meta name="description" content="Giao dien Quan tri vien - CAY CANH NT">
+    <meta name="author" content="Pham Vo Ngoc Thuy">
+    <title>CÂY CẢNH NT - ADMIN PAGES</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Areas/admin/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/Areas/admin/Content/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Areas/admin/Content/dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="~/Areas/admin/Content/vendor/morrisjs/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/Areas/admin/Content/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/admin/Temp" style="font-size:1.5em; color:#ff0000"><strong>CÂY CẢNH NT</strong></a>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Thông tin</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i> Cài đặt</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/thoat"><i class="fa fa-sign-out fa-fw"></i> Đăng xuất</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <div style="padding-top:20px"></div>
+                        <li>
+                            <a href="/admin/menus"><i class="fa fa-table fa-fw"></i> Quản lý Menu</a>
+                        </li>
+                        <li>
+                            <a href="/admin/catologies"><i class="fa fa-database fa-fw"></i> Quản lý Loại hàng</a>
+                        </li>
+                        <li>
+                            <a href="/admin/products"><i class="fa fa-cubes fa-fw"></i> Quản lý Sản phẩm</a>
+                        </li>
+                        <li>
+                            <a href="/admin/contacts"><i class="fa fa-send fa-fw"></i> Quản lý Phản hồi</a>
+                        </li>
+                        <li>
+                            <a href="/admin/sliders"><i class="fa fa-empire fa-fw"></i> Quản lý Trình chiếu</a>
+                        </li>
+                        <li>
+                            <a href="/admin/users"><i class="fa fa-user fa-fw"></i> Quản lý Người dùng</a>
+                        </li>
+                        <li>
+                            <a href="/admin/blogs"><i class="fa fa-quote-left fa-fw"></i> Quản lý Bài viết</a>
+                        </li>
+                        <li>
+                            <a href="/admin/skins"><i class="fa fa-cogs fa-fw"></i> Quản lý Giao diện</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+            @RenderBody()
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="~/Areas/admin/Content/vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Areas/admin/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Areas/admin/Content/vendor/metisMenu/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="~/Areas/admin/Content/vendor/raphael/raphael.min.js"></script>
+    <script src="~/Areas/admin/Content/vendor/morrisjs/morris.min.js"></script>
+    <script src="~/Areas/admin/Content/data/morris-data.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Areas/admin/Content/dist/js/sb-admin-2.js"></script>
+    @RenderSection("_header", false); <!--include style-->
+    @RenderSection("_footer", false); <!--include js-->
+</body>
+</html>

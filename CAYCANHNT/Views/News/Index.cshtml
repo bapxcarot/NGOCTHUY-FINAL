@@ -1,0 +1,49 @@
+﻿@model IEnumerable< CAYCANHNT.Models.BLOG>
+
+@{
+    ViewBag.Title = "Bài viết";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<div class="container">
+    <div class="article-top">
+        <u><h4 style="color:red;text-transform:uppercase">Cây cảnh và cuộc sống &hearts;</h4></u>
+        @{var i = 0;}
+        @foreach (var item in Model)
+        {
+            if (i % 2 == 0)
+            {
+                <div class="article-bottom" style="border-bottom:1px solid red; margin-bottom:10px">
+                    <div class="col-md-4 article-para">
+                        <a>
+                            <img src="~/Content/upload/img/news/@item.IMG" alt="image" class="img-responsive zoom-img">
+                        </a>
+                    </div>
+                    <div class="col-md-8 article-head">
+                        <h4><a href="/chi-tiet-bai-viet/@item.META-@item.ID_BLOG">@item.TITLE</a></h4>
+                        <p>@item.DESCRIPTION</p>
+                    </div>
+                    <div class="clearfix"> </div>
+                    <div style="height:10px"></div>
+                </div>
+            }
+            else
+            {
+                <div class="article-bottom" style="border-bottom:1px solid red; margin-bottom:10px">
+                    <div class="col-md-8 article-head">
+                        <h4><a href="/chi-tiet-bai-viet/@item.META-@item.ID_BLOG">@item.TITLE</a></h4>
+                        <p>@item.DESCRIPTION</p>
+                    </div>
+                    <div class="col-md-4 article-para">
+                        <a>
+                            <img src="~/Content/upload/img/news/@item.IMG" alt="image" class="img-responsive zoom-img">
+                        </a>
+                    </div>
+                    <div class="clearfix"> </div>
+                    <div style="height:10px"></div>
+                </div>
+            }
+            i++;
+        }
+    </div>
+</div>

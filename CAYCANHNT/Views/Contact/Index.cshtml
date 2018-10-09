@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<div class="row" style="margin-right: 10px; margin-left:10px">
+    @{ Html.RenderAction("getShopInfo", "Skin");}
+
+    @{ Html.RenderAction("getDeliveryInfo", "Skin");}
+
+    <div class="panel panel-info">
+        <div class="panel-heading"><h4>Phản hồi với Cây cảnh NT</h4></div>
+        <div class="panel-body" style="text-align:center">
+            <div class="panel panel-body">
+                <div class="form-horizontal">
+                    <div class="form-group" style="margin-bottom:10px">
+                        <label class="control-label col-sm-2">Họ và tên:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="txtusername">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="txtemail">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Tiêu đề:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="txttitle">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Nội dung:</label>
+                        <div class="col-sm-10">
+                            <textarea id="txtdetail" rows="5" style="width:100%"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button id="btnSend" class="btn btn-info pull-right">Gửi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/js/contact")

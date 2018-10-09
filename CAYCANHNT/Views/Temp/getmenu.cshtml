@@ -1,0 +1,12 @@
+﻿@model IEnumerable<CAYCANHNT.Models.MENU>
+
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a href="@item.LINK">@item.TITLE</a></li>
+    }
+
+</ul>
+
+

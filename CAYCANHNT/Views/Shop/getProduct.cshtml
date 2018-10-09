@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CAYCANHNT.Models.PRODUCT>
+
+@foreach (var item in Model)
+{
+    <div class="grid_1_of_4 images_1_of_4">
+        <a href="/san-pham/@item.META-@item.ID_PRO"><img src="~/Content/upload/img/product/@item.IMG1" alt="@item.META"></a>
+        <h5>@item.NAME_PRO </h5>
+        <div class="price-details">
+            <div class="price-number">
+                <b><p style="color:darkred;text-align:center; font-size:1.3em">@item.PRICE VNĐ</p></b>
+            </div>
+            <div class="add-cart">
+            @{
+                var session = (CAYCANHNT.Common.UserLogin)Session[CAYCANHNT.Common.CommonConstant.USER_SESSION];
+            }
+            @if (session != null)
+            {
+                <h4><a href="/them-gio-hang?ProductId=@item.ID_PRO&Quantity=1">MUA</a></h4>
+            }
+            else
+            {
+                <h4><a href="/dang-nhap">MUA</a></h4>
+            }
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    </div>
+}

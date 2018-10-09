@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CAYCANHNTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BLOG">
+          <Key>
+            <PropertyRef Name="ID_BLOG" />
+          </Key>
+          <Property Name="ID_BLOG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TITLE" Type="nvarchar" MaxLength="50" />
+          <Property Name="IMG" Type="varchar" MaxLength="255" />
+          <Property Name="DETAIL" Type="ntext" />
+          <Property Name="DATEBEGIN" Type="smalldatetime" />
+          <Property Name="META" Type="varchar" MaxLength="255" />
+          <Property Name="ORDER" Type="int" />
+          <Property Name="LINK" Type="nvarchar" MaxLength="255" />
+          <Property Name="HIDE" Type="int" />
+          <Property Name="ID_USERS" Type="int" />
+          <Property Name="DESCRIPTION" Type="ntext" />
+        </EntityType>
+        <EntityType Name="CATOLOGY">
+          <Key>
+            <PropertyRef Name="ID_CAT" />
+          </Key>
+          <Property Name="ID_CAT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_CAT" Type="nvarchar" MaxLength="50" />
+          <Property Name="META" Type="varchar" MaxLength="255" />
+          <Property Name="ORDER" Type="int" />
+          <Property Name="LINK" Type="nvarchar" MaxLength="255" />
+          <Property Name="HIDE" Type="int" />
+        </EntityType>
+        <EntityType Name="CONTACT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datebegin" Type="smalldatetime" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+          <Property Name="detail" Type="ntext" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="ID_MENU" />
+          </Key>
+          <Property Name="ID_MENU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TITLE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DATEBEGIN" Type="smalldatetime" />
+          <Property Name="META" Type="varchar" MaxLength="255" />
+          <Property Name="ORDER" Type="int" />
+          <Property Name="LINK" Type="nvarchar" MaxLength="255" />
+          <Property Name="HIDE" Type="int" />
+        </EntityType>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="ID_CART" />
+          </Key>
+          <Property Name="ID_CART" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATEBEGIN" Type="smalldatetime" />
+          <Property Name="META" Type="varchar" MaxLength="255" />
+          <Property Name="ORDER" Type="int" />
+          <Property Name="LINK" Type="nvarchar" MaxLength="255" />
+          <Property Name="HIDE" Type="int" />
+          <Property Name="ID_USERS" Type="int" />
+        </EntityType>
+        <EntityType Name="ORDER_DETAIL">
+          <Key>
+            <PropertyRef Name="ID_CART" />
+            <PropertyRef Name="ID_PRO" />
+          </Key>
+          <Property Name="ID_CART" Type="int" Nullable="false" />
+          <Property Name="ID_PRO" Type="int" Nullable="false" />
+          <Property Name="SOLD_NUM" Type="int" />
+          <Property Name="PRICE" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="PRODUCTS">
+          <Key>
+            <PropertyRef Name="ID_PRO" />
+          </Key>
+          <Property Name="ID_PRO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_PRO" Type="nvarchar" MaxLength="50" />
+          <Property Name="NUMS" Type="int" />
+          <Property Name="PRICE" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DETAIL" Type="ntext" />
+          <Property Name="IMG1" Type="varchar" MaxLength="255" />
+          <Property Name="IMG2" Type="varchar" MaxLength="255" />
+          <Property Name="IMG3" Type="varchar" MaxLength="255" />
+          <Property Name="META" Type="varchar" MaxLength="255" />
+          <Property Name="ORDER" Type="int" />
+          <Property Name="LINK" Type="nvarchar" MaxLength="255" />
+          <Property Name="HIDE" Type="int" />
+          <Property Name="ID_CAT" Type="int" />
+        </EntityType>
+        <EntityType Name="SKIN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="logo" Type="nvarchar(max)" />
+          <Property Name="comercial" Type="nvarchar(max)" />
+          <Property Name="comercial_link" Type="nvarchar(max)" />
+          <Property Name="googlemap" Type="nvarchar(max)" />
+          <Property Name="fanpage" Type="nvarchar(max)" />
+          <Property Name="footer" Type="ntext" />
+          <Property Name="youtube" Type="nvarchar(max)" />
+          <Property Name="aboutus" Type="ntext" />
+          <Property Name="shopinfo" Type="ntext" />
+          <Property Name="deliveryinfo" Type="ntext" />
+        </EntityType>
+        <EntityType Name="SLIDER">
+          <Key>
+            <PropertyRef Name="ID_SLIDE" />
+          </Key>
+          <Property Name="ID_SLIDE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TITLE" Type="nvarchar" MaxLength="50" />
+          <Property Name="IMG" Type="varchar" MaxLength="255" />
+          <Property Name="DATEBEGIN" Type="smalldatetime" />
+          <Property Name="META" Type="varchar" MaxLength="255" />
+          <Property Name="ORDER" Type="int" />
+          <Property Name="LINK" Type="nvarchar" MaxLength="255" />
+          <Property Name="HIDE" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="ID_USERS" />
+          </Key>
+          <Property Name="ID_USERS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="30" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="ADDRESS" Type="nvarchar(max)" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE" Type="varchar" MaxLength="12" />
+          <Property Name="PERMISSION" Type="int" />
+          <Property Name="META" Type="varchar" MaxLength="50" />
+          <Property Name="ORDER" Type="int" />
+          <Property Name="LINK" Type="nvarchar" MaxLength="255" />
+          <Property Name="HIDE" Type="int" />
+        </EntityType>
+        <Association Name="FK__BLOG__ID_USERS__1DE57479">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="BLOG" Type="Self.BLOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID_USERS" />
+            </Principal>
+            <Dependent Role="BLOG">
+              <PropertyRef Name="ID_USERS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CART__ID_USERS__1ED998B2">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID_USERS" />
+            </Principal>
+            <Dependent Role="ORDER">
+              <PropertyRef Name="ID_USERS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CART_DETA__ID_CA__21B6055D">
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="1" />
+          <End Role="ORDER_DETAIL" Type="Self.ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER">
+              <PropertyRef Name="ID_CART" />
+            </Principal>
+            <Dependent Role="ORDER_DETAIL">
+              <PropertyRef Name="ID_CART" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CART_DETA__ID_PR__1FCDBCEB">
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="1" />
+          <End Role="ORDER_DETAIL" Type="Self.ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTS">
+              <PropertyRef Name="ID_PRO" />
+            </Principal>
+            <Dependent Role="ORDER_DETAIL">
+              <PropertyRef Name="ID_PRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTS__ID_CAT__20C1E124">
+          <End Role="CATOLOGY" Type="Self.CATOLOGY" Multiplicity="0..1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATOLOGY">
+              <PropertyRef Name="ID_CAT" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="ID_CAT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CAYCANHNTModelStoreContainer">
+          <EntitySet Name="BLOG" EntityType="Self.BLOG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATOLOGY" EntityType="Self.CATOLOGY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONTACT" EntityType="Self.CONTACT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDER" EntityType="Self.ORDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDER_DETAIL" EntityType="Self.ORDER_DETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SKIN" EntityType="Self.SKIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SLIDER" EntityType="Self.SLIDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__BLOG__ID_USERS__1DE57479" Association="Self.FK__BLOG__ID_USERS__1DE57479">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="BLOG" EntitySet="BLOG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CART__ID_USERS__1ED998B2" Association="Self.FK__CART__ID_USERS__1ED998B2">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="ORDER" EntitySet="ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CART_DETA__ID_CA__21B6055D" Association="Self.FK__CART_DETA__ID_CA__21B6055D">
+            <End Role="ORDER" EntitySet="ORDER" />
+            <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CART_DETA__ID_PR__1FCDBCEB" Association="Self.FK__CART_DETA__ID_PR__1FCDBCEB">
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+            <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTS__ID_CAT__20C1E124" Association="Self.FK__PRODUCTS__ID_CAT__20C1E124">
+            <End Role="CATOLOGY" EntitySet="CATOLOGY" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CAYCANHNTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BLOG">
+          <Key>
+            <PropertyRef Name="ID_BLOG" />
+          </Key>
+          <Property Name="ID_BLOG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IMG" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DETAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DATEBEGIN" Type="DateTime" Precision="0" />
+          <Property Name="META" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ORDER" Type="Int32" />
+          <Property Name="LINK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HIDE" Type="Int32" />
+          <Property Name="ID_USERS" Type="Int32" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="USER" Relationship="Self.FK__BLOG__ID_USERS__1DE57479" FromRole="BLOG" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="CATOLOGY">
+          <Key>
+            <PropertyRef Name="ID_CAT" />
+          </Key>
+          <Property Name="ID_CAT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_CAT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="META" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ORDER" Type="Int32" />
+          <Property Name="LINK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HIDE" Type="Int32" />
+          <NavigationProperty Name="PRODUCTS" Relationship="Self.FK__PRODUCTS__ID_CAT__20C1E124" FromRole="CATOLOGY" ToRole="PRODUCTS" />
+        </EntityType>
+        <EntityType Name="CONTACT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="ID_MENU" />
+          </Key>
+          <Property Name="ID_MENU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DATEBEGIN" Type="DateTime" Precision="0" />
+          <Property Name="META" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ORDER" Type="Int32" />
+          <Property Name="LINK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HIDE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="ID_PRO" />
+          </Key>
+          <Property Name="ID_PRO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_PRO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NUMS" Type="Int32" />
+          <Property Name="PRICE" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DETAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IMG1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IMG2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IMG3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="META" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ORDER" Type="Int32" />
+          <Property Name="LINK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HIDE" Type="Int32" />
+          <Property Name="ID_CAT" Type="Int32" />
+          <NavigationProperty Name="CATOLOGY" Relationship="Self.FK__PRODUCTS__ID_CAT__20C1E124" FromRole="PRODUCTS" ToRole="CATOLOGY" />
+          <NavigationProperty Name="ORDER_DETAIL" Relationship="CAYCANHNTModel.FK__CART_DETA__ID_PR__1FCDBCEB1" FromRole="PRODUCT" ToRole="ORDER_DETAIL" />
+        </EntityType>
+        <EntityType Name="SKIN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="comercial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="comercial_link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="googlemap" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fanpage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="footer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="youtube" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="aboutus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="shopinfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="deliveryinfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SLIDER">
+          <Key>
+            <PropertyRef Name="ID_SLIDE" />
+          </Key>
+          <Property Name="ID_SLIDE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IMG" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DATEBEGIN" Type="DateTime" Precision="0" />
+          <Property Name="META" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ORDER" Type="Int32" />
+          <Property Name="LINK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HIDE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="ID_USERS" />
+          </Key>
+          <Property Name="ID_USERS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="PERMISSION" Type="Int32" />
+          <Property Name="META" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORDER" Type="Int32" />
+          <Property Name="LINK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HIDE" Type="Int32" />
+          <NavigationProperty Name="BLOGs" Relationship="Self.FK__BLOG__ID_USERS__1DE57479" FromRole="USERS" ToRole="BLOG" />
+          <NavigationProperty Name="ORDERs" Relationship="CAYCANHNTModel.FK__CART__ID_USERS__1ED998B21" FromRole="USER" ToRole="ORDER" />
+        </EntityType>
+        <Association Name="FK__BLOG__ID_USERS__1DE57479">
+          <End Role="USERS" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="BLOG" Type="Self.BLOG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="ID_USERS" />
+            </Principal>
+            <Dependent Role="BLOG">
+              <PropertyRef Name="ID_USERS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTS__ID_CAT__20C1E124">
+          <End Role="CATOLOGY" Type="Self.CATOLOGY" Multiplicity="0..1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATOLOGY">
+              <PropertyRef Name="ID_CAT" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="ID_CAT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CAYCANHNTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BLOGs" EntityType="Self.BLOG" />
+          <EntitySet Name="CATOLOGies" EntityType="Self.CATOLOGY" />
+          <EntitySet Name="CONTACTs" EntityType="Self.CONTACT" />
+          <EntitySet Name="MENUs" EntityType="Self.MENU" />
+          <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCT" />
+          <EntitySet Name="SKINs" EntityType="Self.SKIN" />
+          <EntitySet Name="SLIDERs" EntityType="Self.SLIDER" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="USERS" EntityType="Self.USER" />
+          <AssociationSet Name="FK__BLOG__ID_USERS__1DE57479" Association="Self.FK__BLOG__ID_USERS__1DE57479">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="BLOG" EntitySet="BLOGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTS__ID_CAT__20C1E124" Association="Self.FK__PRODUCTS__ID_CAT__20C1E124">
+            <End Role="CATOLOGY" EntitySet="CATOLOGies" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+          <EntitySet Name="ORDERs" EntityType="CAYCANHNTModel.ORDER" />
+          <EntitySet Name="ORDER_DETAIL" EntityType="CAYCANHNTModel.ORDER_DETAIL" />
+          <AssociationSet Name="FK__CART__ID_USERS__1ED998B21" Association="CAYCANHNTModel.FK__CART__ID_USERS__1ED998B21">
+            <End Role="USER" EntitySet="USERS" />
+            <End Role="ORDER" EntitySet="ORDERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CART_DETA__ID_CA__21B6055D1" Association="CAYCANHNTModel.FK__CART_DETA__ID_CA__21B6055D1">
+            <End Role="ORDER" EntitySet="ORDERs" />
+            <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CART_DETA__ID_PR__1FCDBCEB1" Association="CAYCANHNTModel.FK__CART_DETA__ID_PR__1FCDBCEB1">
+            <End Role="PRODUCT" EntitySet="PRODUCTS" />
+            <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="ID_CART" />
+          </Key>
+          <Property Name="ID_CART" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATEBEGIN" Type="DateTime" Precision="0" />
+          <Property Name="META" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ORDER1" Type="Int32" />
+          <Property Name="LINK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HIDE" Type="Int32" />
+          <Property Name="ID_USERS" Type="Int32" />
+          <NavigationProperty Name="USER" Relationship="CAYCANHNTModel.FK__CART__ID_USERS__1ED998B21" FromRole="ORDER" ToRole="USER" />
+          <NavigationProperty Name="ORDER_DETAIL" Relationship="CAYCANHNTModel.FK__CART_DETA__ID_CA__21B6055D1" FromRole="ORDER" ToRole="ORDER_DETAIL" />
+        </EntityType>
+        <EntityType Name="ORDER_DETAIL">
+          <Key>
+            <PropertyRef Name="ID_CART" />
+            <PropertyRef Name="ID_PRO" />
+          </Key>
+          <Property Name="ID_CART" Type="Int32" Nullable="false" />
+          <Property Name="ID_PRO" Type="Int32" Nullable="false" />
+          <Property Name="SOLD_NUM" Type="Int32" />
+          <Property Name="PRICE" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="ORDER" Relationship="CAYCANHNTModel.FK__CART_DETA__ID_CA__21B6055D1" FromRole="ORDER_DETAIL" ToRole="ORDER" />
+          <NavigationProperty Name="PRODUCT" Relationship="CAYCANHNTModel.FK__CART_DETA__ID_PR__1FCDBCEB1" FromRole="ORDER_DETAIL" ToRole="PRODUCT" />
+        </EntityType>
+        <Association Name="FK__CART__ID_USERS__1ED998B21">
+          <End Type="CAYCANHNTModel.USER" Role="USER" Multiplicity="0..1" />
+          <End Type="CAYCANHNTModel.ORDER" Role="ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID_USERS" />
+            </Principal>
+            <Dependent Role="ORDER">
+              <PropertyRef Name="ID_USERS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CART_DETA__ID_CA__21B6055D1">
+          <End Type="CAYCANHNTModel.ORDER" Role="ORDER" Multiplicity="1" />
+          <End Type="CAYCANHNTModel.ORDER_DETAIL" Role="ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER">
+              <PropertyRef Name="ID_CART" />
+            </Principal>
+            <Dependent Role="ORDER_DETAIL">
+              <PropertyRef Name="ID_CART" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CART_DETA__ID_PR__1FCDBCEB1">
+          <End Type="CAYCANHNTModel.PRODUCT" Role="PRODUCT" Multiplicity="1" />
+          <End Type="CAYCANHNTModel.ORDER_DETAIL" Role="ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="ID_PRO" />
+            </Principal>
+            <Dependent Role="ORDER_DETAIL">
+              <PropertyRef Name="ID_PRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CAYCANHNTModelStoreContainer" CdmEntityContainer="CAYCANHNTEntities">
+          <EntitySetMapping Name="BLOGs">
+            <EntityTypeMapping TypeName="CAYCANHNTModel.BLOG">
+              <MappingFragment StoreEntitySet="BLOG">
+                <ScalarProperty Name="ID_BLOG" ColumnName="ID_BLOG" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="DETAIL" ColumnName="DETAIL" />
+                <ScalarProperty Name="DATEBEGIN" ColumnName="DATEBEGIN" />
+                <ScalarProperty Name="META" ColumnName="META" />
+                <ScalarProperty Name="ORDER" ColumnName="ORDER" />
+                <ScalarProperty Name="LINK" ColumnName="LINK" />
+                <ScalarProperty Name="HIDE" ColumnName="HIDE" />
+                <ScalarProperty Name="ID_USERS" ColumnName="ID_USERS" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATOLOGies">
+            <EntityTypeMapping TypeName="CAYCANHNTModel.CATOLOGY">
+              <MappingFragment StoreEntitySet="CATOLOGY">
+                <ScalarProperty Name="ID_CAT" ColumnName="ID_CAT" />
+                <ScalarProperty Name="NAME_CAT" ColumnName="NAME_CAT" />
+                <ScalarProperty Name="META" ColumnName="META" />
+                <ScalarProperty Name="ORDER" ColumnName="ORDER" />
+                <ScalarProperty Name="LINK" ColumnName="LINK" />
+                <ScalarProperty Name="HIDE" ColumnName="HIDE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTACTs">
+            <EntityTypeMapping TypeName="CAYCANHNTModel.CONTACT">
+              <MappingFragment StoreEntitySet="CONTACT">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MENUs">
+            <EntityTypeMapping TypeName="CAYCANHNTModel.MENU">
+              <MappingFragment StoreEntitySet="MENU">
+                <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="DATEBEGIN" ColumnName="DATEBEGIN" />
+                <ScalarProperty Name="META" ColumnName="META" />
+                <ScalarProperty Name="ORDER" ColumnName="ORDER" />
+                <ScalarProperty Name="LINK" ColumnName="LINK" />
+                <ScalarProperty Name="HIDE" ColumnName="HIDE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTS">
+            <EntityTypeMapping TypeName="CAYCANHNTModel.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCTS">
+                <ScalarProperty Name="ID_PRO" ColumnName="ID_PRO" />
+                <ScalarProperty Name="NAME_PRO" ColumnName="NAME_PRO" />
+                <ScalarProperty Name="NUMS" ColumnName="NUMS" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="DETAIL" ColumnName="DETAIL" />
+                <ScalarProperty Name="IMG1" ColumnName="IMG1" />
+                <ScalarProperty Name="IMG2" ColumnName="IMG2" />
+                <ScalarProperty Name="IMG3" ColumnName="IMG3" />
+                <ScalarProperty Name="META" ColumnName="META" />
+                <ScalarProperty Name="ORDER" ColumnName="ORDER" />
+                <ScalarProperty Name="LINK" ColumnName="LINK" />
+                <ScalarProperty Name="HIDE" ColumnName="HIDE" />
+                <ScalarProperty Name="ID_CAT" ColumnName="ID_CAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SKINs">
+            <EntityTypeMapping TypeName="CAYCANHNTModel.SKIN">
+              <MappingFragment StoreEntitySet="SKIN">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="comercial" ColumnName="comercial" />
+                <ScalarProperty Name="comercial_link" ColumnName="comercial_link" />
+                <ScalarProperty Name="googlemap" ColumnName="googlemap" />
+                <ScalarProperty Name="fanpage" ColumnName="fanpage" />
+                <ScalarProperty Name="footer" ColumnName="footer" />
+                <ScalarProperty Name="youtube" ColumnName="youtube" />
+                <ScalarProperty Name="aboutus" ColumnName="aboutus" />
+                <ScalarProperty Name="shopinfo" ColumnName="shopinfo" />
+                <ScalarProperty Name="deliveryinfo" ColumnName="deliveryinfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SLIDERs">
+            <EntityTypeMapping TypeName="CAYCANHNTModel.SLIDER">
+              <MappingFragment StoreEntitySet="SLIDER">
+                <ScalarProperty Name="ID_SLIDE" ColumnName="ID_SLIDE" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="DATEBEGIN" ColumnName="DATEBEGIN" />
+                <ScalarProperty Name="META" ColumnName="META" />
+                <ScalarProperty Name="ORDER" ColumnName="ORDER" />
+                <ScalarProperty Name="LINK" ColumnName="LINK" />
+                <ScalarProperty Name="HIDE" ColumnName="HIDE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CAYCANHNTModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="CAYCANHNTModel.USER">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="ID_USERS" ColumnName="ID_USERS" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="PERMISSION" ColumnName="PERMISSION" />
+                <ScalarProperty Name="META" ColumnName="META" />
+                <ScalarProperty Name="ORDER" ColumnName="ORDER" />
+                <ScalarProperty Name="LINK" ColumnName="LINK" />
+                <ScalarProperty Name="HIDE" ColumnName="HIDE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDERs">
+            <EntityTypeMapping TypeName="CAYCANHNTModel.ORDER">
+              <MappingFragment StoreEntitySet="ORDER">
+                <ScalarProperty Name="ID_USERS" ColumnName="ID_USERS" />
+                <ScalarProperty Name="HIDE" ColumnName="HIDE" />
+                <ScalarProperty Name="LINK" ColumnName="LINK" />
+                <ScalarProperty Name="ORDER1" ColumnName="ORDER" />
+                <ScalarProperty Name="META" ColumnName="META" />
+                <ScalarProperty Name="DATEBEGIN" ColumnName="DATEBEGIN" />
+                <ScalarProperty Name="ID_CART" ColumnName="ID_CART" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER_DETAIL">
+            <EntityTypeMapping TypeName="CAYCANHNTModel.ORDER_DETAIL">
+              <MappingFragment StoreEntitySet="ORDER_DETAIL">
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="SOLD_NUM" ColumnName="SOLD_NUM" />
+                <ScalarProperty Name="ID_PRO" ColumnName="ID_PRO" />
+                <ScalarProperty Name="ID_CART" ColumnName="ID_CART" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

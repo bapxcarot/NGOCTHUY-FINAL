@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Cửa Hàng Cây Cảnh NT</title>
+    <link rel="shortcut icon" href="~/Content/images/trees.ico">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script type="text/javascript" src="~/Scripts/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/easing.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/startstop-slider.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+
+    <div id="fb-root"></div>
+    <script>
+(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=378364479306045&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="headertop_desc">
+                <div class="account_desc" style="margin-right:5px">
+                    <ul>
+                        @{
+                            var session = (CAYCANHNT.Common.UserLogin)Session[CAYCANHNT.Common.CommonConstant.USER_SESSION];
+                        }
+                        @if (session == null)
+                        {
+                            <li><a href="/dang-ky" class="button" style="color:#fff;background: #009900; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Đăng ký</a></li>
+                            <li><a href="/dang-nhap" class="button" style="color:#fff;background: #009900; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Đăng nhập</a></li>
+                        }
+                        else
+                        {
+                            <li style="color:#fff;background: #009900; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Xin chào: @session.UserName</li>
+                            <li><a href="/thoat" class="button" style="color:#fff;background: #009900; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Thoát</a></li>
+                        }
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="header_top">
+                @{ Html.RenderAction("getLogo", "Skin");}
+                @if (session != null)
+                {
+                    <div class="cart">
+                        <p>
+                            <span><a href="/gio-hang"><img src="~/Content/images/basket-icon.png" alt="" /></a></span><div id="dd" class="wrapper-dropdown-2"></div>
+                        </p>
+                    </div>
+                }
+
+                <script type="text/javascript">
+                    function DropDown(el) {
+                        this.dd = el;
+                        this.initEvents();
+                    }
+                    DropDown.prototype = {
+                        initEvents: function () {
+                            var obj = this;
+
+                            obj.dd.on('click', function (event) {
+                                $(this).toggleClass('active');
+                                event.stopPropagation();
+                            });
+                        }
+                    }
+
+                    $(function () {
+
+                        var dd = new DropDown($('#dd'));
+
+                        $(document).click(function () {
+                            // all dropdowns
+                            $('.wrapper-dropdown-2').removeClass('active');
+                        });
+
+                    });
+
+                </script>
+                <div class="clear"></div>
+            </div>
+            <div class="header_bottom">
+                <div class="menu">
+                    @{ Html.RenderAction("getmenu", "Temp");}
+                </div>
+
+                <div class="clear"></div>
+
+            </div>
+            <div class="header_slide">
+                <div class="header_bottom_left">
+                    @{ Html.RenderAction("getcatolory", "Temp");}
+                    <div class="clear"></div>
+                    @{ Html.RenderAction("getComercial", "Skin");}
+                    <div class="clear"></div>
+                    @{ Html.RenderAction("getGGMapHome", "Skin");}
+                    <div class="clear"></div>
+                    @{ Html.RenderAction("getFanpage", "Skin");}
+                </div>
+
+                <div class="header_bottom_right">
+                    @RenderBody()
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="row" style="margin-left:80px;margin-right:100px">
+            @{ Html.RenderAction("getFooter", "Skin");}
+            @{ Html.RenderAction("getYoutube", "Skin");}
+        </div>
+        <div class="copy_right">
+            <p>&copy; 2018  Cây Cảnh NT. Tất cả quyền đều được bảo vệ | Thiết kế và phát triển bởi Phạm Võ Ngọc Thuỳ</p>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <a href="#" id="toTop" style="margin-bottom:20px"><span id="toTopHover"> </span></a>
+    <script src="https://uhchat.net/code.php?f=137efb"></script>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <script src="@Url.Content("~/Scripts/jquery.signalR-2.2.2.js")"></script>
+    <script src="@Url.Content("~/signalr/hubs")"></script>
+    <script>
+        $(function () {
+            //setup hubs
+            var counterHub = $.connection.counterHub;
+            $.connection.hub.start().done(function () {
+                //do something after hub connected
+            });
+            //function receive data from server. server call in on code behind
+            counterHub.client.UpdateCount = function (count) {
+                $('#UserOnline').text(count);
+            }
+        });
+    </script>
+
+    @RenderSection("jsFooter",required:false)
+
+</body>
+</html>

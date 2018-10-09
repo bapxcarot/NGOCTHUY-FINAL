@@ -1,0 +1,10 @@
+﻿@model IEnumerable<CAYCANHNT.Models.SKIN>
+
+@foreach (var i in Model)
+{
+    <div class="col-md-6">
+        <div class="map-responsive" style="margin-top:5px; margin-bottom:5px">
+            <iframe width="400" height="200" src="@i.youtube" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+}

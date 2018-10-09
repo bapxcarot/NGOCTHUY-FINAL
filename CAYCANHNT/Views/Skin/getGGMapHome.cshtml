@@ -1,0 +1,15 @@
+﻿@model IEnumerable<CAYCANHNT.Models.SKIN>
+
+@foreach(var i in Model)
+{
+    var maps=i.googlemap;
+    var key= "AIzaSyA0hLaVh0iDpP1axIWVmr8TjQoqNFCSj4s";
+    maps=maps+key;
+    <div class="panel panel-default">
+        <div class="panel-heading" style="background:#009900; color:#fff; text-align:center">ĐỊA CHỈ CÂY CẢNH NT</div>
+        <div class="panel-body">
+            <iframe width="250" height="250" frameborder="0" style="border:0"
+                    src="@maps" allowfullscreen></iframe>
+        </div>
+    </div>
+}

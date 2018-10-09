@@ -1,0 +1,42 @@
+﻿@using CAYCANHNT.Help
+@model CAYCANHNT.Models.BLOG
+
+@{
+    ViewBag.Title = "Chi tiết";
+    ViewBag.Keyword = Functions.getKeyword(Model.TITLE);
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<div id="fb-root"></div>
+<script>
+(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=378364479306045&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="panel panel-success" style="margin-top:20px">
+    <div class="panel-heading" style="text-align:center"><strong style="font-size:20px">Chi tiết bài viết</strong></div>
+    <div class="panel-body">
+        <div style="padding-left:20px">
+            <p>Ngày đăng: @Convert.ToDateTime(Model.DATEBEGIN).ToString("dd/MM/yyyy") | Người đăng: Quản trị viên.</p>
+            <p>Liên kết: @Model.LINK</p>
+        </div>
+        <br />
+        <div style="text-align:center">
+            <img src="~/Content/upload/img/news/@Model.IMG" />
+        </div>
+        <br />
+        <div style="padding-left:20px">
+            <p>@Model.DESCRIPTION</p>
+            <p><u>Nội dung bài viết:</u></p>
+            <p>@Html.Raw(Model.DETAIL)</p>
+        </div>
+    </div>
+</div>
+
+<div style="width:55%">
+    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="100%" data-numposts="1"></div>
+</div>

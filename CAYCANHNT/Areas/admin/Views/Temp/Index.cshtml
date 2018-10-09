@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Giao diện quản trị viên";
+    Layout = "~/Areas/admin/Views/Shared/_MyLayout.cshtml";
+}
+
+<div style="height:10px"></div>
+<div class="panel panel-red" style="margin-top:15px;">
+    <div class="panel-heading">Chức năng quản trị hệ thống</div>
+    <div class="panel-body">
+        <div class="row">
+            @{Html.RenderAction("CountMenu", "Temp"); }
+            @{Html.RenderAction("CountCatology", "Temp"); }
+            @{Html.RenderAction("CountProduct", "Temp"); }
+            @{Html.RenderAction("CountContact", "Temp"); }
+            @{Html.RenderAction("CountSlider", "Temp"); }
+            @{Html.RenderAction("CountUsers", "Temp"); }
+            @{Html.RenderAction("CountCart", "Temp"); }
+            @{Html.RenderAction("CountBlog", "Temp"); }
+        </div>
+    </div>
+</div>

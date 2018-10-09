@@ -1,0 +1,8 @@
+﻿@model IEnumerable<CAYCANHNT.Models.SKIN>
+
+@foreach (var i in Model)
+{
+    <div class="logo">
+        <a href="/default/index"><img src="~/Content/images/@i.logo" alt="" /></a>
+    </div>
+}

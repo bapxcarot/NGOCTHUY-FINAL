@@ -1,0 +1,59 @@
+﻿@model List<CAYCANHNT.Models.CartItem>
+
+@{
+    ViewBag.Title = "THANH TOÁN";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+@section jsFooter
+{
+    <script src="/Scripts/js/CartController.js"></script>
+}
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        Tiến hành thanh toán
+    </div>
+    <div class="panel-body">
+        @if (Model.Count > 0)
+        {
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="text-align:center; font-weight:bold;">
+                        <td> Mã SP</td>
+                        <td> Tên SP</td>
+                        <td> Ảnh SP</td>
+                        <td> SL</td>
+                        <td> Đơn giá</td>
+                        <td> Thành tiền</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="text-align:center">@item.Product.ID_PRO</td>
+                            <td>@item.Product.NAME_PRO</td>
+                            <td style="text-align:center"><img src="~/Content/upload/img/product/@item.Product.IMG1" width="100" /></td>
+                            <td><input type="text" class="txtQuantity" data-id="@item.Product.ID_PRO" value="@item.Quantity" /></td>
+                            <td>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.Product.PRICE)</td>
+                            <td>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.Product.PRICE * item.Quantity)</td>
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+           
+        }
+        else
+        {
+            <div>
+                <span class="alert alert-danger">Bạn chưa mua sản phẩm!</span>
+            </div>
+        }
+        @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+        {
+            <button type="submit" class="btn btn-danger pull-right">Gửi đơn hàng</button>
+        }
+    </div>
+</div>

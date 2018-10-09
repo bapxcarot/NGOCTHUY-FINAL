@@ -1,0 +1,94 @@
+﻿@model CAYCANHNT.Models.USER
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/admin/Views/Shared/_MyLayout.cshtml";
+}
+
+<div style="height:15px"></div>
+<div class="panel panel-red">
+    <div class="panel-heading">Xoá ?</div>
+    <div class="panel-body">
+        <h3 style="color:red">Bạn có chắc chắn muốn xoá mục này?</h3>
+        <div>
+            <dl class="dl-horizontal">
+                <dt style="padding-bottom:5px">
+                    @Html.Raw("Tên người dùng: ")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.USERNAME)
+                </dd>
+
+                <dt style="padding-bottom:5px">
+                    @Html.Raw("Họ và tên: ")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NAME)
+                </dd>
+
+                <dt style="padding-bottom:5px">
+                    @Html.Raw("Địa chỉ: ")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ADDRESS)
+                </dd>
+
+                <dt style="padding-bottom:5px">
+                    @Html.Raw("Email: ")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EMAIL)
+                </dd>
+
+                <dt style="padding-bottom:5px">
+                    @Html.Raw("Số điện thoại: ")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PHONE)
+                </dd>
+
+                <dt style="padding-bottom:5px">
+                    @Html.Raw("Quyền hạn: ")
+                </dt>
+
+                <dd>
+                    @{ var per = (Model.PERMISSION == 0) ? "User" : "Admin";}
+                    @Html.DisplayFor(model => per)
+                </dd>
+
+                <dt style="padding-bottom:5px">
+                    @Html.Raw("Liên kết: ")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LINK)
+                </dd>
+
+                <dt style="padding-bottom:5px">
+                    @Html.Raw("Trạng thái: ")
+                </dt>
+
+                <dd>
+                    @{ var chk = (Model.HIDE == 0) ? "Hiện" : "Ẩn";}
+                    @Html.DisplayFor(model => chk)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="XOÁ" class="btn btn-danger" /> |
+                    @Html.ActionLink("Quay về", "Index", "Index", new { @class = "btn btn-success" })
+                </div>
+            }
+        </div>
+    </div>
+</div>

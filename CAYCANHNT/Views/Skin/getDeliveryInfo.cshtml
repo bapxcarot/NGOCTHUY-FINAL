@@ -1,0 +1,13 @@
+﻿@model IEnumerable<CAYCANHNT.Models.SKIN>
+
+@foreach (var i in Model)
+{
+    <div class="panel panel-info">
+        <div class="panel-heading"><h4>Chính sách giao hàng</h4></div>
+        <div class="panel-body">
+            <div style="color:black; font-size:1.3em">
+                @Html.Raw(i.deliveryinfo)
+            </div>
+        </div>
+    </div>
+}

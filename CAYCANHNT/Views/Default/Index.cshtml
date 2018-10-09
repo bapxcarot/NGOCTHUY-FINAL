@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<div>
+    @{ Html.RenderAction("getSlider", "Default");}
+</div>
+<div style="clear:both; padding-top:10px;"></div> @*// tránh đè lên nhau*@
+<div>
+    @{Html.RenderAction("getCatologyMain", "Default"); }
+</div>

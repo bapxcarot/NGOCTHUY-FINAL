@@ -1,0 +1,16 @@
+﻿@model IEnumerable<CAYCANHNT.Models.CATOLOGY>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading" style="background:#009900; color:#fff; text-align:center">DANH MỤC SẢN PHẨM</div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><a href="/danh-muc/@item.META">@item.NAME_CAT</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
