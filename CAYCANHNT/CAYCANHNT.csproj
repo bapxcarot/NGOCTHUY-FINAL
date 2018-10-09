@@ -1622,6 +1622,11 @@
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\price-rating.png" />
     <Content Include="Content\images\quality-rating.png" />
+    <Content Include="Content\images\slider\banner-noi-that-1.jpg" />
+    <Content Include="Content\images\slider\banner-noi-that-2.jpg" />
+    <Content Include="Content\images\slider\banner-noi-that-3.jpg" />
+    <Content Include="Content\images\slider\banner-noi-that-4.jpg" />
+    <Content Include="Content\images\slider\banner-noi-that-5.jpg" />
     <Content Include="Content\upload\img\news\bap-cai2.jpg" />
     <Content Include="Content\upload\img\news\dai-loc.jpg" />
     <Content Include="Content\upload\img\news\hong-mon.jpg" />
@@ -1650,11 +1655,6 @@
     <Content Include="Content\upload\img\product\van-nien-thanh-leo-cot.jpg" />
     <Content Include="Content\images\search.png" />
     <Content Include="Content\images\skype.png" />
-    <Content Include="Content\images\slider\banner-cay-canh-van-phong.jpg" />
-    <Content Include="Content\images\slider\banner-cay-sen-da.jpg" />
-    <Content Include="Content\images\slider\banner-xuong-rong.jpg" />
-    <Content Include="Content\images\slider\banner.jpg" />
-    <Content Include="Content\images\slider\banner1.jpg" />
     <Content Include="Content\images\tag.png" />
     <Content Include="Content\images\trees.ico" />
     <Content Include="Content\images\twitter.png" />
