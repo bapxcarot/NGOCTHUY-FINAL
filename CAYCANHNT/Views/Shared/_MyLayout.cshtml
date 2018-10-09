@@ -43,59 +43,21 @@
                         }
                         else
                         {
-                            <li style="color:#fff;background: #e542f4; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Xin chào: @session.UserName</li>
-                            <li><a href="/thoat" class="button" style="color:#fff;background: #e542f4; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Thoát</a></li>
+                            <li style="color:#0800ff;background: #fff; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Xin chào: @session.UserName</li>
+                            <li><span><a href="/gio-hang"><img style="height: 30px; width: 40px" src="~/Content/images/basket-icon.png" alt="" /></a></span></li>
+                            <li><a href="/thoat" class="button" style="color:#0800ff;background: #fff; border: none; font-size:15px;font-family: Helvetica, Arial, Tahoma, sans-serif;">Thoát</a></li>
                         }
                     </ul>
                 </div>
                 <div class="clear"></div>
             </div>
-            @*<div class="header_top">
-                @{ Html.RenderAction("getLogo", "Skin");}
-                @if (session != null)
-                {
-                    <div class="cart">
-                        <p>
-                            <span><a href="/gio-hang"><img src="~/Content/images/basket-icon.png" alt="" /></a></span><div id="dd" class="wrapper-dropdown-2"></div>
-                        </p>
-                    </div>
-                }
 
-                <script type="text/javascript">
-                    function DropDown(el) {
-                        this.dd = el;
-                        this.initEvents();
-                    }
-                    DropDown.prototype = {
-                        initEvents: function () {
-                            var obj = this;
-
-                            obj.dd.on('click', function (event) {
-                                $(this).toggleClass('active');
-                                event.stopPropagation();
-                            });
-                        }
-                    }
-
-                    $(function () {
-
-                        var dd = new DropDown($('#dd'));
-
-                        $(document).click(function () {
-                            // all dropdowns
-                            $('.wrapper-dropdown-2').removeClass('active');
-                        });
-
-                    });
-
-                </script>
-                <div class="clear"></div>
-            </div>*@
             <div class="header_bottom">
                 <div class="menu">
                     @{ Html.RenderAction("getmenu", "Temp");}
-                </div>
 
+                </div>
+                
                 <div class="clear"></div>
 
             </div>

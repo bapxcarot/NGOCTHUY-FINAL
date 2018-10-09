@@ -120,8 +120,8 @@ namespace CAYCANHNT.Controllers
         [HttpPost]
         public ActionResult Payment()
         {
-            //var order = new Model.EF.ORDER();
-            //order.DATEBEGIN = DateTime.Now;
+            var order = new Model.EF.ORDER();
+            order.DATEBEGIN = DateTime.Now;
 
             //try
             //{
