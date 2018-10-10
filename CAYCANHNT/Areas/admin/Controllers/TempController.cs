@@ -31,12 +31,12 @@ namespace CAYCANHNT.Areas.admin.Controllers
             return PartialView(v.ToList());
         }
 
-        public ActionResult CountCart()
-        {
-            var v = from t in _db.ORDERs
-                    select t;
-            return PartialView(v.ToList());
-        }
+        //public ActionResult CountCart()
+        //{
+        //    var v = from t in _db.ORDERs
+        //            select t;
+        //    return PartialView(v.ToList());
+        //}
 
         public ActionResult CountBlog()
         {
