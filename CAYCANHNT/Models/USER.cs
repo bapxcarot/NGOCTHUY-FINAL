@@ -18,7 +18,7 @@ namespace CAYCANHNT.Models
         public USER()
         {
             this.BLOGs = new HashSet<BLOG>();
-            this.ORDERs = new HashSet<ORDER>();
+            this.CARTs = new HashSet<CART>();
         }
     
         public int ID_USERS { get; set; }
@@ -37,6 +37,6 @@ namespace CAYCANHNT.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BLOG> BLOGs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER> ORDERs { get; set; }
+        public virtual ICollection<CART> CARTs { get; set; }
     }
 }

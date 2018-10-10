@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CAYCANHNT.Models
+namespace Model.EF
 {
     using System;
     using System.Data.Entity;

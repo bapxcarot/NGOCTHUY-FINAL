@@ -7,29 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CAYCANHNT.Models
+namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ORDER
+    public partial class CART
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ORDER()
+        public CART()
         {
-            this.ORDER_DETAIL = new HashSet<ORDER_DETAIL>();
+            this.CART_DETAIL = new HashSet<CART_DETAIL>();
         }
     
         public int ID_CART { get; set; }
         public Nullable<System.DateTime> DATEBEGIN { get; set; }
         public string META { get; set; }
-        public Nullable<int> ORDER1 { get; set; }
+        public Nullable<int> ORDER { get; set; }
         public string LINK { get; set; }
         public Nullable<int> HIDE { get; set; }
         public Nullable<int> ID_USERS { get; set; }
     
         public virtual USER USER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER_DETAIL> ORDER_DETAIL { get; set; }
+        public virtual ICollection<CART_DETAIL> CART_DETAIL { get; set; }
     }
 }
